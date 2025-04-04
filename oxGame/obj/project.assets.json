@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\Programming_stuff\\TicTacToe\\oxGame\\oxGame.csproj",
+      "projectUniqueName": "c:\\Users\\user\\Documents\\Programming_stuff\\TicTacToe\\oxGame\\oxGame.csproj",
       "projectName": "oxGame",
-      "projectPath": "C:\\Users\\user\\Documents\\Programming_stuff\\TicTacToe\\oxGame\\oxGame.csproj",
+      "projectPath": "c:\\Users\\user\\Documents\\Programming_stuff\\TicTacToe\\oxGame\\oxGame.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\Programming_stuff\\TicTacToe\\oxGame\\obj\\",
+      "outputPath": "c:\\Users\\user\\Documents\\Programming_stuff\\TicTacToe\\oxGame\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -52,7 +52,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -73,7 +73,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
