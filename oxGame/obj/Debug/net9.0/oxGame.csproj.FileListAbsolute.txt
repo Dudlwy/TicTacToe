@@ -1,0 +1,14 @@
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\bin\Debug\net9.0\oxGame.exe
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\bin\Debug\net9.0\oxGame.deps.json
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\bin\Debug\net9.0\oxGame.runtimeconfig.json
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\bin\Debug\net9.0\oxGame.dll
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\bin\Debug\net9.0\oxGame.pdb
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\oxGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\oxGame.AssemblyInfoInputs.cache
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\oxGame.AssemblyInfo.cs
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\oxGame.csproj.CoreCompileInputs.cache
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\oxGame.dll
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\refint\oxGame.dll
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\oxGame.pdb
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\oxGame.genruntimeconfig.cache
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\ref\oxGame.dll
