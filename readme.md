@@ -1,6 +1,7 @@
 --What am l doing??
 The goal of this is to create a simple two player x and naught game
-Instead of creating an AI that will play against the player this will be a two player it
+Instead of creating an AI that will play against the player, there would be a second person who will
+also be interacting with the console
 
 --how am l doing this
 Making use of a multidemensional array to contain the players characters. (3 x 3);
