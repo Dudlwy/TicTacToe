@@ -12,3 +12,4 @@ C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\refi
 C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\oxGame.pdb
 C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\oxGame.genruntimeconfig.cache
 C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\ref\oxGame.dll
+C:\Users\user\Documents\Programming_stuff\TicTacToe\oxGame\obj\Debug\net9.0\oxGame.sourcelink.json
