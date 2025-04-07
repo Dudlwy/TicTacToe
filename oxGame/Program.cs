@@ -7,16 +7,51 @@ internal class Program
     private static void Main(string[] args)
     {
         char[,] spaces = new char[3, 3] {{' ',' ',' '}, {' ',' ',' '}, {' ',' ',' '}};
+        char[,] InputSheet = new char[3, 3] {{'1','2','3'}, {'4','5','6'}, {'7','8','9'}};
         char playerOne = 'X', playerTwo = 'O';
+        string userInput;
 
         Console.WriteLine("---Welcome to my noughts and crosses game---");
 
         Console.WriteLine("Player one will be cross(X) and Player two will be nought(O) \n");
         Console.WriteLine("Rules------");
         Console.WriteLine("1. To place your mark input, type in the corresponding position");
-        Console.WriteLine("tp for top left");
+        Console.WriteLine("2. Respect each other this is a friendly game :)");
+        Console.WriteLine("-----------------------------------------------");
 
-        Tutorial();
+        Console.WriteLine("Would you like to play the tutorial?");
+        Console.Write("Input (Y/N): ");
+        userInput = Console.ReadLine();
+        userInput = userInput.ToUpper();
+
+        do
+        {
+
+            if (userInput == "Y")
+            {
+                Tutorial();
+            }else if (userInput == "N")
+            {
+                Console.WriteLine("Entering game....");
+            }else
+            {
+                Console.Write("Invalid input please input Y or N: ");
+                userInput = Console.ReadLine();
+                userInput = userInput.ToUpper();
+
+                if (userInput == "Y")
+                {
+                    Tutorial();
+                }if (userInput == "N")
+                {
+                    Console.WriteLine("Entering game....");
+                }
+                
+            }
+        
+        }while(userInput !="Y" && userInput !="N" );
+
+
 
         Console.ReadLine();
     }
@@ -84,6 +119,8 @@ internal class Program
         string player = mark== "X" ? "Player One": "Player Two";
         string playerInput =" ";
         bool emptySpace = true;
+
+        Console.Clear();
 
         Console.WriteLine("You have selected the TUTORIAL!!!!\n");
         Console.WriteLine("To play noughts and crosses on this software u need to input a");
