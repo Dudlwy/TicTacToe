@@ -9,7 +9,9 @@ internal class Program
         char[,] spaces = new char[3, 3] {{' ',' ',' '}, {' ',' ',' '}, {' ',' ',' '}};
         char[,] InputSheet = new char[3, 3] {{'1','2','3'}, {'4','5','6'}, {'7','8','9'}};
         char playerOne = 'X', playerTwo = 'O';
-        string userInput;
+        bool isRunning = true;
+        string userInput, playerInput;
+        
 
         Console.WriteLine("---Welcome to my noughts and crosses game---");
 
@@ -42,9 +44,26 @@ internal class Program
                 if (userInput == "Y")
                 {
                     Tutorial();
+                    
+
                 }if (userInput == "N")
                 {
-                    Console.WriteLine("Entering game....");
+                    Console.WriteLine("Entering game.... \n");
+
+                    while(isRunning)
+                    {
+                        int turn = 0;
+
+                        Console.WriteLine("You have entered the game");
+
+                        spaces = DrawBoard(spaces,playerOne);
+                        playerInput = Console.ReadLine();
+                        EnterMark(playerInput,playerOne,spaces);
+
+
+                    }
+
+                    
                 }
                 
             }
@@ -113,8 +132,8 @@ internal class Program
         string[,] rowLose = new string[3,3] {{"X","X","O"}, {"4","5","6"}, {"7","8","9"}};
         string[,] colWin = new string[3,3] {{"1","2","O"}, {"4","5","O"}, {"7","8","O"}};
         string[,] diaWin = new string[3,3] {{"X","2","3"}, {"4","X","6"}, {"7","8","X"}};
-        string[,] dialose = new string[3,3] {{"X","2","3"}, {"4","O","6"}, {"X","8","9"}};
-        string[,] tie = new string[3,3] {{"X","O","X"}, {"X","O","O"}, {"X","O","X"}};
+        string[,] dialose = new string[3,3] {{"1","2","X"}, {"4","O","6"}, {"X","8","9"}};
+        string[,] tie = new string[3,3] {{"X","O","X"}, {"X","O","O"}, {"O","X","X"}};
         string mark = "X"; 
         string player = mark== "X" ? "Player One": "Player Two";
         string playerInput =" ";
@@ -135,18 +154,19 @@ internal class Program
         spaces = DrawBoard(spaces,mark);
         Console.Write("To set your mark input a postion. Now pick a zone and input its number: ");
         playerInput = Console.ReadLine();
+        Console.WriteLine();
 
         spaces = EnterMark(playerInput,mark,spaces);
 
         spaces = DrawBoard(spaces,mark);
-        Console.Write("As you can see the zone you picked now has you mark meaning that you have claimed this position.");
-        Console.WriteLine("The game will only end once Player One or \nPlayer two manages to claim an entire column or row");
+        Console.WriteLine("As you can see the zone you picked now has you mark meaning that you have claimed this position.");
+        Console.WriteLine("The game will only end once Player One or Player two manages to claim an entire column or row");
         Console.WriteLine("The following boards show the win conditions: \n");
 
         Console.Write("Press enter to continue");
         Console.ReadLine();
 
-        Console.WriteLine("The board below shows how to win the game by claiming all the cells in one row:");
+        Console.WriteLine("The board below shows how to win the game by claiming all the cells in one row: \n");
         DrawBoard(rowWin);
 
         Console.WriteLine("But this is one of the three victory conditions. Your goal is to win whilst also preventing the other");
@@ -155,47 +175,41 @@ internal class Program
         DrawBoard(rowLose);
 
         Console.WriteLine("The above board shows us how the other player could choose to block player one from achieving");
-        Console.WriteLine("a win, the game is turn bases so once a player enters his mark in one zone the other ");
+        Console.WriteLine("a win, the game is turn based so once a player enters his mark in one zone the other ");
         Console.Write("Player will also get a chance to do so as well until one player wins or if all zones are occupied,");
-        Console.WriteLine("In that case the game would end in a draw! n");
+        Console.WriteLine("In that case the game would end in a draw! \n");
 
         Console.Write("Press enter to continue");
         Console.ReadLine();
+        Console.WriteLine();
 
         DrawBoard(colWin);
 
-        Console.WriteLine("An example of a column win");
+        Console.WriteLine("An example of a column win \n");
 
         Console.Write("Press enter to continue");
         Console.ReadLine();
+        Console.WriteLine();
 
 
         DrawBoard(diaWin);
         
-        Console.WriteLine("Above: a win .... Below: a blocked attempt");
+        Console.WriteLine("Above: a win .... Below: a blocked attempt \n");
 
         DrawBoard(dialose);
 
         Console.Write("Press enter to continue");
         Console.ReadLine();
 
-        Console.WriteLine("The board below is an example of a tie");
+        Console.WriteLine("The board below is an example of a tie \n");
 
         DrawBoard(tie);
 
         Console.Write("Press enter to continue");
         Console.ReadLine();
+        Console.WriteLine();
 
-        Console.WriteLine("And that concludes the tutorial");
-
-        
-        
-        playerInput = Console.ReadLine();
-
-        DrawBoard(spaces,mark);
-        emptySpace = EmptySpaces(spaces);
-
-        Console.WriteLine(emptySpace);
+        Console.WriteLine("And that concludes the tutorial  :)");
 
         Console.ReadLine();
     }
