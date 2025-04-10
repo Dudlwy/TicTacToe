@@ -55,11 +55,15 @@ internal class Program
                         int turn = 0;
 
                         Console.WriteLine("You have entered the game");
-
+                        Console.WriteLine($"turn {turn + 1}");
                         spaces = DrawBoard(spaces,playerOne);
                         playerInput = Console.ReadLine();
-                        EnterMark(playerInput,playerOne,spaces);
+                        spaces = EnterMark(playerInput,playerOne,spaces);
 
+                        Console.WriteLine();
+                        spaces = DrawBoard(spaces,playerTwo);
+                        playerInput = Console.ReadLine();
+                        spaces = EnterMark(playerInput,playerTwo,spaces);
 
                     }
 
@@ -89,6 +93,9 @@ internal class Program
         Console.WriteLine("   |   |   ");
         Console.WriteLine($" {spaces[2,0]} | {spaces[2,1]} | {spaces[2,2]} ");
         Console.WriteLine("   |   |   \n");
+
+        Console.Write("where do you want to place your mark? (1-9): ");
+        
 
         return spaces;
 
@@ -298,42 +305,70 @@ internal class Program
     }
     public static char[,] EnterMark (string playerInput, char mark,char[,] spaces)
     {
+        bool isOccupied;
         switch (playerInput)
         {
             case "1":
-            spaces[0,0] = mark;
+            {
+                isOccupied = IsOccupied(spaces,0,0);
+                spaces = SetMark(isOccupied,spaces,mark,0,0);
+            }
             break;
 
             case "2":
-            spaces[0,1] = mark;
+            {
+                isOccupied = IsOccupied(spaces,0,1);
+                spaces = SetMark(isOccupied,spaces,mark,0,1);
+            }
             break;
 
             case "3":
-            spaces[0,3] = mark;
+            {
+                isOccupied = IsOccupied(spaces,0,2);
+                spaces = SetMark(isOccupied,spaces,mark,0,2);
+            }
             break;
 
             case "4":
-            spaces[1,0] = mark;
+            {
+                isOccupied = IsOccupied(spaces,1,0);
+                spaces = SetMark(isOccupied,spaces,mark,1,0);
+            }
             break;
 
             case "5":
-            spaces[1,1] = mark;
+            {
+                isOccupied = IsOccupied(spaces,1,1);
+                spaces = SetMark(isOccupied,spaces,mark,1,1);
+            }
             break;
 
             case "6":
-            spaces[1,2] = mark;
+            {
+                isOccupied = IsOccupied(spaces,1,2);
+                spaces = SetMark(isOccupied,spaces,mark,1,2);
+            }
             break;
 
             case "7":
-            spaces[2,0] = mark;
+            {
+                isOccupied = IsOccupied(spaces,2,0);
+                spaces = SetMark(isOccupied,spaces,mark,2,0);
+            }
             break;
 
             case "8":
-            spaces[2,1] = mark;
+            {
+                isOccupied = IsOccupied(spaces,2,1);
+                spaces = SetMark(isOccupied,spaces,mark,2,1);
+            }
             break;
 
             case "9":
-            spaces[2,2] = mark;
+            {
+                isOccupied = IsOccupied(spaces,2,2);
+                spaces = SetMark(isOccupied,spaces,mark,2,2);
+            }
             break;
 
             default:
@@ -341,6 +376,44 @@ internal class Program
             break;
         }
             return spaces;
+    }
+
+    static bool IsOccupied (char[,] spaces, int a, int b)
+    {
+        bool isValid = true;
+        string userInput = " ";
+        bool isOccupied = true;
+
+        if (spaces[a,b] != ' ')
+        {
+            Console.WriteLine("This zone is already occupied");
+            Console.WriteLine("Please pick an empty zone (1-9)?");
+            isOccupied = true;
+           
+        }else
+        {
+            isOccupied = false;
+        }
+
+        return isOccupied;
+    }
+
+    static char[,] SetMark (bool occupied,char[,] spaces, char mark,int a, int b)
+    {
+        string playerInput;
+ 
+        if (occupied == false)
+          {
+            spaces[a,b] = mark;
+          }else
+          {
+              Console.Write("Input: ");
+              playerInput = Console.ReadLine();
+
+              spaces = EnterMark(playerInput,mark,spaces);
+            }
+
+        return spaces;
     }
 }
 
