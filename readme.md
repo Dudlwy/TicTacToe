@@ -21,4 +21,3 @@ create a method that is used as a tutorial this will show the users how to play 
 this will be a quick game that teaches the players how to play the game and it will be scripted.
 the goal of this tutorial is to teach the user how to play the game.
 
-the tutorial will just be until the player draws across the first row...
