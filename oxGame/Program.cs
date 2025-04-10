@@ -65,6 +65,8 @@ internal class Program
                         playerInput = Console.ReadLine();
                         spaces = EnterMark(playerInput,playerTwo,spaces);
 
+
+
                     }
 
                     
@@ -414,6 +416,49 @@ internal class Program
             }
 
         return spaces;
+    }
+
+    static void GameStatus ()
+    {
+        
+    }
+
+    static bool isTie (char[,] spaces)
+    {
+        bool status = false;
+        int space = 0;
+        foreach(var zone in spaces)
+        {
+            if (zone == ' ')
+            {
+                space++;
+            }
+        }
+
+        if (space > 0)
+        {
+            status = true;
+        }
+
+        return status;
+    }
+
+    static void isWin (char[,] spaces)
+    {
+        bool win = false;
+
+        if (spaces[0,0] == spaces[0,1] && spaces[0,1] == spaces[0,2])
+        {
+            if(spaces[0,0] == 'X')
+            {
+                Console.WriteLine("Player One wins");
+                win = true;
+            }else
+            {
+                Console.WriteLine("Player Two wins");
+                win = true;
+            }
+        }
     }
 }
 
