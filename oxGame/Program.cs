@@ -65,7 +65,15 @@ internal class Program
                         playerInput = Console.ReadLine();
                         spaces = EnterMark(playerInput,playerTwo,spaces);
 
+                        if(isTie(spaces) == true)
+                        {
+                            isRunning = false;
+                        };
 
+                        if (isWin(spaces) == true)
+                        {
+                            isRunning = false;
+                        }
 
                     }
 
@@ -425,7 +433,7 @@ internal class Program
 
     static bool isTie (char[,] spaces)
     {
-        bool status = false;
+        bool status = true;
         int space = 0;
         foreach(var zone in spaces)
         {
@@ -437,13 +445,13 @@ internal class Program
 
         if (space > 0)
         {
-            status = true;
+            status = false;
         }
 
         return status;
     }
 
-    static void isWin (char[,] spaces)
+    static bool isWin (char[,] spaces)
     {
         bool win = false;
 
@@ -453,12 +461,138 @@ internal class Program
             {
                 Console.WriteLine("Player One wins");
                 win = true;
+
+                return win;
             }else
             {
                 Console.WriteLine("Player Two wins");
                 win = true;
+
+                return win;
             }
         }
+
+        if (spaces[1,0] == spaces[1,1] && spaces[1,1] == spaces[1,2])
+        {
+            if(spaces[0,0] == 'X')
+            {
+                Console.WriteLine("Player One wins");
+                win = true;
+
+                return win;
+            }else
+            {
+                Console.WriteLine("Player Two wins");
+                win = true;
+
+                return win;
+            }
+        }
+
+        if (spaces[2,0] == spaces[2,1] && spaces[2,1] == spaces[2,2])
+        {
+            if(spaces[0,0] == 'X')
+            {
+                Console.WriteLine("Player One wins");
+                win = true;
+
+                return win;
+            }else
+            {
+                Console.WriteLine("Player Two wins");
+                win = true;
+
+                return win;
+            }
+        }
+
+        if( spaces[0,0] == spaces[1,0] && spaces[1,0] == spaces[2,0])
+        {
+             if(spaces[0,0] == 'X')
+            {
+                Console.WriteLine("Player One wins");
+                win = true;
+
+                return win;
+            }else
+            {
+                Console.WriteLine("Player Two wins");
+                win = true;
+
+                return win;
+            }
+        }
+
+        if( spaces[0,1] == spaces[1,1] && spaces[1,1] == spaces[2,1])
+        {
+             if(spaces[0,0] == 'X')
+            {
+                Console.WriteLine("Player One wins");
+                win = true;
+
+                return win;
+            }else
+            {
+                Console.WriteLine("Player Two wins");
+                win = true;
+
+                return win;
+            }
+        }
+
+        if( spaces[0,2] == spaces[1,2] && spaces[1,2] == spaces[2,2])
+        {
+             if(spaces[0,0] == 'X')
+            {
+                Console.WriteLine("Player One wins");
+                win = true;
+
+                return win;
+            }else
+            {
+                Console.WriteLine("Player Two wins");
+                win = true;
+
+                return win;
+            }
+        }
+
+        if( spaces[0,0] == spaces[1,1] && spaces[1,1] == spaces[1,2])
+        {
+             if(spaces[0,0] == 'X')
+            {
+                Console.WriteLine("Player One wins");
+                win = true;
+
+                return win;
+            }else
+            {
+                Console.WriteLine("Player Two wins");
+                win = true;
+
+                return win;
+            }
+        }
+
+        if( spaces[0,2] == spaces[1,1] && spaces[1,1] == spaces[2,0])
+        {
+             if(spaces[0,0] == 'X')
+            {
+                Console.WriteLine("Player One wins");
+                win = true;
+
+                return win;
+            }else
+            {
+                Console.WriteLine("Player Two wins");
+                win = true;
+
+                return win;
+            }
+        }
+
+        return win;
+
     }
 }
 
