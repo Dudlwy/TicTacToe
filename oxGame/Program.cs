@@ -33,9 +33,10 @@ internal class Program
             if (userInput == "Y")
             {
                 Tutorial();
+                Game();
             }else if (userInput == "N")
             {
-                Console.WriteLine("Entering game....");
+                Game();
             }else
             {
                 Console.Write("Invalid input please input Y or N: ");
@@ -45,39 +46,12 @@ internal class Program
                 if (userInput == "Y")
                 {
                     Tutorial();
+                    Game();
                     
 
                 }if (userInput == "N")
-                {
-                    Console.WriteLine("Entering game.... \n");
-
-                    while(isRunning)
-                    {
-                        int turn = 0;
-
-                        Console.WriteLine("You have entered the game");
-                        Console.WriteLine($"turn {turn + 1}");
-                        spaces = DrawBoard(spaces,playerOne);
-                        playerInput = Console.ReadLine();
-                        spaces = EnterMark(playerInput,playerOne,spaces);
-
-                        isRunning = BoardStatus(spaces);
-                        if(isRunning == false)
-                        {
-                            DrawBoard(spaces);
-                            break;
-                        }
-
-                        Console.WriteLine();
-                        spaces = DrawBoard(spaces,playerTwo);
-                        playerInput = Console.ReadLine();
-                        spaces = EnterMark(playerInput,playerTwo,spaces);
-
-                        isRunning = BoardStatus(spaces);
-
-                    }
-
-                    
+                { 
+                    Game();
                 }
                 
             }
@@ -453,6 +427,10 @@ internal class Program
         if (space > 0)
         {
             status = false;
+        }else
+        {
+            Console.WriteLine("The Game ended in a Draw!!!");
+            status = true;
         }
 
         return status;
@@ -612,12 +590,52 @@ internal class Program
             isRunning = false;
         };
 
-        if (isWin(spaces) == true)
+        if (isWin(spaces) == true && isRunning == true)
         {
             isRunning = false;
         }
 
         return isRunning;
+    }
+
+    static void Game()
+    {
+
+        char[,] spaces = new char[3, 3] {{' ',' ',' '}, {' ',' ',' '}, {' ',' ',' '}};
+        char[,] InputSheet = new char[3, 3] {{'1','2','3'}, {'4','5','6'}, {'7','8','9'}};
+        char playerOne = 'X', playerTwo = 'O';
+        bool isRunning = true;
+        string userInput, playerInput;
+        int turn = 0;
+
+        Console.WriteLine("Entering game....");
+        Console.WriteLine("You have entered the game");
+        
+        while(isRunning)
+                    {
+
+                        Console.WriteLine($"turn {turn + 1}");
+                        spaces = DrawBoard(spaces,playerOne);
+                        playerInput = Console.ReadLine();
+                        spaces = EnterMark(playerInput,playerOne,spaces);
+
+                        isRunning = BoardStatus(spaces);
+                        if(isRunning == false)
+                        {
+                            DrawBoard(spaces);
+                            break;
+                        }
+
+                        Console.WriteLine();
+                        spaces = DrawBoard(spaces,playerTwo);
+                        playerInput = Console.ReadLine();
+                        spaces = EnterMark(playerInput,playerTwo,spaces);
+
+                        isRunning = BoardStatus(spaces);
+                        turn++;
+
+                    }
+
     }
 }
 
