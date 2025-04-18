@@ -113,10 +113,7 @@ internal class Program
         {
             Console.Write("where do you want to place your mark? (1-9): ");
         }
-
-        
-        
-
+    
         return spaces;
 
     }
