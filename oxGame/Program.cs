@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Net;
 using System.Runtime.InteropServices;
+using System.Xml.Serialization;
 
 internal class Program
 {
@@ -60,20 +61,19 @@ internal class Program
                         playerInput = Console.ReadLine();
                         spaces = EnterMark(playerInput,playerOne,spaces);
 
+                        isRunning = BoardStatus(spaces);
+                        if(isRunning == false)
+                        {
+                            DrawBoard(spaces);
+                            break;
+                        }
+
                         Console.WriteLine();
                         spaces = DrawBoard(spaces,playerTwo);
                         playerInput = Console.ReadLine();
                         spaces = EnterMark(playerInput,playerTwo,spaces);
 
-                        if(isTie(spaces) == true)
-                        {
-                            isRunning = false;
-                        };
-
-                        if (isWin(spaces) == true)
-                        {
-                            isRunning = false;
-                        }
+                        isRunning = BoardStatus(spaces);
 
                     }
 
@@ -90,10 +90,15 @@ internal class Program
     }
     
 
-    public static char[,] DrawBoard(char[,] spaces,char mark)
+    public static char[,] DrawBoard(char[,] spaces,char mark = ' ')
     {   
-        string player = mark=='X'? "Player One": "Player Two";
-        Console.WriteLine($"{player}'s Turn: \n");
+        
+        bool endGame =BoardStatus(spaces);
+        if (endGame == true)
+        {
+            string player = mark=='X'? "Player One": "Player Two";    
+            Console.WriteLine($"{player}'s Turn: \n");
+        }
         Console.WriteLine("   |   |   ");
         Console.WriteLine($" {spaces[0,0]} | {spaces[0,1]} | {spaces[0,2]} ");
         Console.WriteLine("___|___|___");
@@ -104,7 +109,12 @@ internal class Program
         Console.WriteLine($" {spaces[2,0]} | {spaces[2,1]} | {spaces[2,2]} ");
         Console.WriteLine("   |   |   \n");
 
-        Console.Write("where do you want to place your mark? (1-9): ");
+        if (endGame == true)
+        {
+            Console.Write("where do you want to place your mark? (1-9): ");
+        }
+
+        
         
 
         return spaces;
@@ -454,8 +464,9 @@ internal class Program
     static bool isWin (char[,] spaces)
     {
         bool win = false;
-
-        if (spaces[0,0] == spaces[0,1] && spaces[0,1] == spaces[0,2])
+        
+        
+        if (spaces[0,0] == spaces[0,1] && spaces[0,1] == spaces[0,2] && spaces[0,0] != ' ')
         {
             if(spaces[0,0] == 'X')
             {
@@ -472,7 +483,7 @@ internal class Program
             }
         }
 
-        if (spaces[1,0] == spaces[1,1] && spaces[1,1] == spaces[1,2])
+        if (spaces[1,0] == spaces[1,1] && spaces[1,1] == spaces[1,2] && spaces[1,0] != ' ')
         {
             if(spaces[0,0] == 'X')
             {
@@ -489,7 +500,7 @@ internal class Program
             }
         }
 
-        if (spaces[2,0] == spaces[2,1] && spaces[2,1] == spaces[2,2])
+        if (spaces[2,0] == spaces[2,1] && spaces[2,1] == spaces[2,2] && spaces[2,0] != ' ')
         {
             if(spaces[0,0] == 'X')
             {
@@ -506,7 +517,7 @@ internal class Program
             }
         }
 
-        if( spaces[0,0] == spaces[1,0] && spaces[1,0] == spaces[2,0])
+        if( spaces[0,0] == spaces[1,0] && spaces[1,0] == spaces[2,0] && spaces[0,0] != ' ')
         {
              if(spaces[0,0] == 'X')
             {
@@ -523,7 +534,7 @@ internal class Program
             }
         }
 
-        if( spaces[0,1] == spaces[1,1] && spaces[1,1] == spaces[2,1])
+        if( spaces[0,1] == spaces[1,1] && spaces[1,1] == spaces[2,1] && spaces[0,1] != ' ')
         {
              if(spaces[0,0] == 'X')
             {
@@ -540,7 +551,7 @@ internal class Program
             }
         }
 
-        if( spaces[0,2] == spaces[1,2] && spaces[1,2] == spaces[2,2])
+        if( spaces[0,2] == spaces[1,2] && spaces[1,2] == spaces[2,2] && spaces[2,0] != ' ')
         {
              if(spaces[0,0] == 'X')
             {
@@ -557,7 +568,7 @@ internal class Program
             }
         }
 
-        if( spaces[0,0] == spaces[1,1] && spaces[1,1] == spaces[1,2])
+        if( spaces[0,0] == spaces[1,1] && spaces[1,1] == spaces[2,2] && spaces[0,0] != ' ')
         {
              if(spaces[0,0] == 'X')
             {
@@ -574,7 +585,7 @@ internal class Program
             }
         }
 
-        if( spaces[0,2] == spaces[1,1] && spaces[1,1] == spaces[2,0])
+        if( spaces[0,2] == spaces[1,1] && spaces[1,1] == spaces[2,0] && spaces[0,2] != ' ')
         {
              if(spaces[0,0] == 'X')
             {
@@ -593,6 +604,23 @@ internal class Program
 
         return win;
 
+    }
+
+    static bool BoardStatus(char[,] spaces)
+    {
+        bool isRunning = true;
+
+        if(isTie(spaces) == true)
+        {
+            isRunning = false;
+        };
+
+        if (isWin(spaces) == true)
+        {
+            isRunning = false;
+        }
+
+        return isRunning;
     }
 }
 
