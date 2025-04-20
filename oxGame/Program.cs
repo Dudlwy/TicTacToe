@@ -429,7 +429,7 @@ internal class Program
             status = false;
         }else
         {
-            Console.WriteLine("The Game ended in a Draw!!!");
+            
             status = true;
         }
 
@@ -588,6 +588,7 @@ internal class Program
         if(isTie(spaces) == true)
         {
             isRunning = false;
+            
         };
 
         if (isWin(spaces) == true && isRunning == true)
@@ -622,6 +623,10 @@ internal class Program
                         isRunning = BoardStatus(spaces);
                         if(isRunning == false)
                         {
+                            if(isTie(spaces) == true)
+                            {
+                                Console.WriteLine("The Game ended in a Draw!!!");
+                            }
                             DrawBoard(spaces);
                             break;
                         }
