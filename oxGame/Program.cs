@@ -613,34 +613,54 @@ internal class Program
         Console.WriteLine("You have entered the game");
         
         while(isRunning)
-                    {
+        {
 
-                        Console.WriteLine($"turn {turn + 1}");
-                        spaces = DrawBoard(spaces,playerOne);
-                        playerInput = Console.ReadLine();
-                        spaces = EnterMark(playerInput,playerOne,spaces);
+            Console.WriteLine($"turn {turn + 1}");
+            spaces = DrawBoard(spaces,playerOne);
+            playerInput = Console.ReadLine();
+            spaces = EnterMark(playerInput,playerOne,spaces);
 
-                        isRunning = BoardStatus(spaces);
-                        if(isRunning == false)
-                        {
-                            if(isTie(spaces) == true)
-                            {
-                                Console.WriteLine("The Game ended in a Draw!!!");
-                            }
-                            DrawBoard(spaces);
-                            break;
-                        }
+            isRunning = BoardStatus(spaces);
+            if(isRunning == false)
+            {
+                if(isTie(spaces) == true)
+                {
+                    Console.WriteLine("The Game ended in a Draw!!!");
+                }
 
-                        Console.WriteLine();
-                        spaces = DrawBoard(spaces,playerTwo);
-                        playerInput = Console.ReadLine();
-                        spaces = EnterMark(playerInput,playerTwo,spaces);
+                DrawBoard(spaces);
+                break;
+            }
 
-                        isRunning = BoardStatus(spaces);
-                        turn++;
+            Console.WriteLine();
+            spaces = DrawBoard(spaces,playerTwo);
+            playerInput = Console.ReadLine();
+            spaces = EnterMark(playerInput,playerTwo,spaces);
 
-                    }
+            isRunning = BoardStatus(spaces);
+            turn++;
 
+           
+        }
+
+        Console.WriteLine("Would you like to play another game?");
+        Console.Write("yes/no (Y/N): Y\b");
+        userInput= Console.ReadLine();
+        userInput= userInput.ToUpper();
+
+        if(userInput=="Y")
+        {
+            Game();
+        }else
+        {
+            Console.WriteLine("Thank you for playing my game!!");
+            Console.ReadLine();
+
+            Console.Clear();
+            Environment.Exit(0);
+        }
+
+      
     }
 }
 
