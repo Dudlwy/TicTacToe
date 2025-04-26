@@ -664,7 +664,6 @@ internal class Program
 
             isRunning = BoardStatus(spaces);
             turn++;
-
            
         }
 
@@ -674,6 +673,7 @@ internal class Program
 
         if(userInput=="Y")
         {
+            Console.Clear();
             Game();
         }else
         {
