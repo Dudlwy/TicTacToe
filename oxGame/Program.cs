@@ -287,6 +287,9 @@ internal class Program
 
                 default:
                 Console.WriteLine("invalid input");
+                Console.Write("Input a number between 1 and 9: ");
+                playerInput =Console.ReadLine();
+                EnterMark(playerInput,mark,spaces);
                 break;
             }
             
