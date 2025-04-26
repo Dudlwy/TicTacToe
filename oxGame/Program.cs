@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Net;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 internal class Program
@@ -24,8 +25,7 @@ internal class Program
 
         Console.WriteLine("Would you like to play the tutorial?");
         Console.Write("Input (Y/N): ");
-        userInput = Console.ReadLine();
-        userInput = userInput.ToUpper();
+        userInput = CheckInput(Console.ReadLine());
 
         do
         {
@@ -40,9 +40,8 @@ internal class Program
             }else
             {
                 Console.Write("Invalid input please input Y or N: ");
-                userInput = Console.ReadLine();
-                userInput = userInput.ToUpper();
-
+                userInput = CheckInput(Console.ReadLine());
+                
                 if (userInput == "Y")
                 {
                     Tutorial();
@@ -458,6 +457,7 @@ internal class Program
             }
         }
 
+
         if (spaces[1,0] == spaces[1,1] && spaces[1,1] == spaces[1,2] && spaces[1,0] != ' ')
         {
             if(spaces[0,0] == 'X')
@@ -581,6 +581,25 @@ internal class Program
 
     }
 
+     static string CheckInput(string input)
+        {
+            input = input.ToUpper();
+
+            if (input == "Y")
+            {
+                return input;
+            }else if (input== "N")
+            {
+                return input;
+            }else
+            {
+                Console.Write("invalid input please enter (y or n): ");
+                input = Console.ReadLine();
+                CheckInput(input);
+                return input;
+            }
+        }
+
     static bool BoardStatus(char[,] spaces)
     {
         bool isRunning = true;
@@ -645,7 +664,7 @@ internal class Program
 
         Console.WriteLine("Would you like to play another game?");
         Console.Write("yes/no (Y/N): Y\b");
-        userInput= Console.ReadLine();
+        userInput= CheckInput(Console.ReadLine());
         userInput= userInput.ToUpper();
 
         if(userInput=="Y")
