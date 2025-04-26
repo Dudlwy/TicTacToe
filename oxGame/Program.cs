@@ -363,6 +363,9 @@ internal class Program
 
             default:
             Console.WriteLine("invalid input");
+            Console.Write("Input a number between 1 and 9: ");
+            playerInput =Console.ReadLine();
+            EnterMark(playerInput,mark,spaces);
             break;
         }
             return spaces;
@@ -582,23 +585,23 @@ internal class Program
     }
 
      static string CheckInput(string input)
-        {
-            input = input.ToUpper();
+    {
+        input = input.ToUpper();
 
-            if (input == "Y")
-            {
-                return input;
-            }else if (input== "N")
-            {
-                return input;
-            }else
-            {
-                Console.Write("invalid input please enter (y or n): ");
-                input = Console.ReadLine();
-                CheckInput(input);
-                return input;
-            }
+        if (input == "Y")
+        {
+            return input;
+        }else if (input== "N")
+        {
+            return input;
+        }else
+        {
+            Console.Write("invalid input please enter (y or n): ");
+            input = Console.ReadLine();
+            CheckInput(input);
+            return input;
         }
+    }
 
     static bool BoardStatus(char[,] spaces)
     {
@@ -665,7 +668,6 @@ internal class Program
         Console.WriteLine("Would you like to play another game?");
         Console.Write("yes/no (Y/N): Y\b");
         userInput= CheckInput(Console.ReadLine());
-        userInput= userInput.ToUpper();
 
         if(userInput=="Y")
         {
